@@ -34,6 +34,13 @@ public class MainPageTests extends TestBase{
         $("[alt='Feedback Link']").shouldBe(visible);
     }
 
-
+    @Test
+    @DisplayName("Page should change language")
+    void changeLanguageTest() {
+        open("");
+        $(".rcl-navbar a[title=Français]").click();
+        $(".rcl-navbar a[title=English]").shouldBe(visible);
+        $(".rcl-header-navigation span").shouldHave(text("Magasiner"));
+    }
 }
 
