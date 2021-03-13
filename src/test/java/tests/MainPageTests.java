@@ -16,5 +16,24 @@ public class MainPageTests extends TestBase{
     void checkCovidNoticePresentTest() {
         open("");
         $("div[aria-live=polite] p strong").shouldHave(text("COVID-19"));
-    }}
+    }
+
+    @Test
+    @DisplayName("Page blocks should be loaded")
+    void checkAllBlocksLoadedTest() {
+        open("");
+        $(".rcl-navbar").shouldBe(visible);
+        $(".rcl-navmain").shouldBe(visible);
+        $(".jsUiBlockAlert").shouldBe(visible);
+        $(".jsUiBlockCarousel").shouldBe(visible);
+        $(".jsUiBlockTabs").shouldBe(visible);
+        $(".dsa-banner span").find(byText("Learn more")).shouldBe(visible);
+        $(byText("More reasons to choose Rogers")).shouldBe(visible);
+        $(".jsUiBlockTiles").shouldBe(visible);
+        $("#footer").shouldBe(visible);
+        $("[alt='Feedback Link']").shouldBe(visible);
+    }
+
+
+}
 
