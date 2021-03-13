@@ -1,4 +1,5 @@
 package tests;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,9 +11,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 @Tag("web")
-public class MainPageTests extends TestBase{
+public class MainPageTests extends TestBase {
     @Test
-    @DisplayName("Page should have Covid Notice")
+    @DisplayName("Page should have Covid Alert")
     void checkCovidNoticePresentTest() {
         open("");
         $("div[aria-live=polite] p strong").shouldHave(text("COVID-19"));
@@ -43,4 +44,3 @@ public class MainPageTests extends TestBase{
         $(".rcl-header-navigation span").shouldHave(text("Magasiner"));
     }
 }
-
