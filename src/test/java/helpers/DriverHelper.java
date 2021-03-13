@@ -3,12 +3,16 @@ package helpers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import config.ConfigHelper;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class DriverHelper {
     public static void configureDriver() {
+        addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+
         Configuration.baseUrl = ConfigHelper.getWebUrl();
         Configuration.startMaximized = true;
         Configuration.timeout = 8000;
