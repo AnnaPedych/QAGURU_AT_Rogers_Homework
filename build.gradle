@@ -46,3 +46,11 @@ test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }
+
+task web(type: Test) {
+    useJUnitPlatform {
+        includeTags 'web'
+    }
+    systemProperties(System.getProperties())
+
+}
