@@ -8,9 +8,9 @@ import org.aeonbits.owner.Config;
         "classpath:config/authorization.properties"
 })
 public interface AuthorizationConfig extends Config{
-    @Key("testUsername")
+    @Key("test.username")
     String testUsername();
 
-    @Key("testPassword")
+    @Key("test.password")
     String testPassword();
 }
