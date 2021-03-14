@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static helpers.DriverHelper.getConsoleLogs;
+import static io.qameta.allure.Allure.step;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
@@ -19,23 +20,29 @@ public class StoreSearchTests extends TestBase {
     @Test
     @DisplayName("Open stores search page from main page")
     void openStoresFromMainPageTest() {
-        open("");
-        $(".rcl-navbar a[title='Find a Store']").click();
-        $(".dir-map").shouldBe(Condition.visible);
+        step("Open main page", () -> open(""));
+        step("Open stores page", () -> {
+            $(".rcl-navbar a[title='Find a Store']").click();
+            $(".dir-map").shouldBe(Condition.visible);
+        });
     }
 
     @Test
     @DisplayName("Open stores search page with direct link")
     void openStoresByDirectLinkTest() {
-        open("/stores");
-        $(".dir-map").shouldBe(Condition.visible);
+        step("Open stores page", () -> {
+            open("/stores");
+            $(".dir-map").shouldBe(Condition.visible);
+        });
     }
 
     @Test
     @DisplayName("Console log should not contain errors")
     void checkConsoleLogErrorsTest() {
-        open("/stores");
-        String consoleLogs = getConsoleLogs();
-        assertThat(consoleLogs, not(containsString("SEVERE")));
+        step("Open stores page", () -> open("/stores"));
+        step("Check errors in console", () -> {
+            String consoleLogs = getConsoleLogs();
+            assertThat(consoleLogs, not(containsString("SEVERE")));
+        });
     }
 }
