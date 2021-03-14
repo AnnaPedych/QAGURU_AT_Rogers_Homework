@@ -29,6 +29,10 @@ public class ConfigHelper {
         return System.getProperty("video.storage");
     }
 
+    public static boolean isVideoOn() {
+        return getWebVideoStorage() != null;
+    }
+
     private static AuthorizationConfig getAuthorizationConfig() {
         return ConfigFactory.newInstance().create(
                 AuthorizationConfig.class, System.getProperties());

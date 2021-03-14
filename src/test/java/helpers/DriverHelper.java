@@ -5,7 +5,9 @@ import com.codeborne.selenide.Selenide;
 import config.ConfigHelper;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
@@ -15,7 +17,7 @@ public class DriverHelper {
 
         Configuration.baseUrl = ConfigHelper.getWebUrl();
         Configuration.startMaximized = true;
-        Configuration.timeout = 8000;
+        Configuration.timeout = 10000;
 
         if (ConfigHelper.isRemoteWebDriver()) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -24,6 +26,9 @@ public class DriverHelper {
             Configuration.browserCapabilities = capabilities;
             Configuration.remote = ConfigHelper.getWebRemoteDriver();
         }
+    }
+    public static String getSessionId(){
+        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString().replace("selenoid","");
     }
 
     public static String getConsoleLogs() {
