@@ -26,10 +26,10 @@ public class FeedbackTests extends TestBase {
         open("");
         $("[alt='Feedback Link']").click();
         switchTo().frame("survey-iframe-SI_cITeM7y1ypmvyDP");
-        $(".q-radio", 3).click();
-        $$(".ChoiceStructure li").get(5).$("label").click();
-        $$(".ChoiceStructure li").get(15).$("label").click();
-        $$(".ChoiceStructure li").get(18).$("label").click();
+        $(".q-radio", firstAnswer).click();
+        $$(".ChoiceStructure li").get(secondAnswer).$("label").click();
+        $$(".ChoiceStructure li").get(thirdAnswer).$("label").click();
+        $$(".ChoiceStructure li").get(fourthAnswer).$("label").click();
         $("#NextButton").click();
         $("#EndOfSurvey").shouldHave(matchText("thank you"));
         switchTo().defaultContent();

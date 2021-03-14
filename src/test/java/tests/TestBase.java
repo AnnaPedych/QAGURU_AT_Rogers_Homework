@@ -1,5 +1,6 @@
 package tests;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
@@ -13,14 +14,17 @@ public class TestBase {
     public static void beforeAll() {
         configureDriver();
     }
+    Faker faker = new Faker();
+    public int firstAnswer = faker.number().numberBetween(0, 9);
+    public int secondAnswer = faker.number().numberBetween(0, 11);
+    public int thirdAnswer = faker.number().numberBetween(12, 16);
+    public int fourthAnswer = faker.number().numberBetween(17, 18);
 
     @AfterEach
     public void addAttachments(){
         attachScreenshot("Last screenshot");
         attachPageSource();
         attachAsText("Browser console logs", getConsoleLogs());
-
-
         closeWebDriver();
     }
 }
