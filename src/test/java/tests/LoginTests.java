@@ -24,7 +24,10 @@ public class LoginTests extends TestBase {
             $("#username").setValue(getTestUsername());
             $("#password").setValue(getTestPassword());
             $(".signInButton button").click();
+        });
+        step("Verify successful authorization", () -> {
             $(".top_intro_section h1").shouldHave(text("Welcome,"));
-            $(".link_intro_section span").shouldHave(text("Where can I find my account number?"));});
+            $(".link_intro_section span").shouldHave(text("Where can I find my account number?"));
+        });
     }
 }
