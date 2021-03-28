@@ -41,7 +41,6 @@ public class LoginTests extends TestBase {
         step("Sign in as Pay As You Go Customer", () -> {
             $(".rcl-navbar a[title='Sign in']").click();
             $("#username").setValue(getTestUsername());
-            $("#password").setValue("");
             $(".signInButton button").click();
         });
         step("Verify unsuccessful authorization", () -> {

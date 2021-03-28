@@ -18,7 +18,7 @@ public class FeedbackTests extends TestBase {
         step("Open main page", () -> open(""));
         step("Open feedback form", () -> {
             $("[alt='Feedback Link']").click();
-            switchTo().frame("survey-iframe-SI_cITeM7y1ypmvyDP");
+            switchTo().frame($(".QSIEmbeddedTarget iframe"));
             $("#Questions .QuestionText").shouldHave(matchText("Survey"));
         });}
 
@@ -28,7 +28,7 @@ public class FeedbackTests extends TestBase {
         step("Open main page", () -> open(""));
         step("Open feedback form", () -> {
             $("[alt='Feedback Link']").click();
-            switchTo().frame("survey-iframe-SI_cITeM7y1ypmvyDP");
+            switchTo().frame($(".QSIEmbeddedTarget iframe"));
         });
         step("Populate questionnaire", () -> {
             $(".q-radio", firstAnswer).click();
@@ -50,7 +50,7 @@ public class FeedbackTests extends TestBase {
         step("Open main page", () -> open(""));
         step("Open feedback form", () -> {
             $("[alt='Feedback Link']").click();
-            switchTo().frame("survey-iframe-SI_cITeM7y1ypmvyDP");
+            switchTo().frame($(".QSIEmbeddedTarget iframe"));
         });
         step("Submit feedback form", () -> $("#NextButton").click());
         step("Verify system throws validation error", () -> {

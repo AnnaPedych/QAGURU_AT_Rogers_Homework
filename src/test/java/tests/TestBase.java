@@ -14,6 +14,7 @@ public class TestBase {
     public static void beforeAll() {
         configureDriver();
     }
+
     Faker faker = new Faker();
     public int firstAnswer = faker.number().numberBetween(0, 9);
     public int secondAnswer = faker.number().numberBetween(0, 11);
