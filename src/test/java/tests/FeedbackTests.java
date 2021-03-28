@@ -31,10 +31,11 @@ public class FeedbackTests extends TestBase {
             switchTo().frame($(".QSIEmbeddedTarget iframe"));
         });
         step("Populate questionnaire", () -> {
-            $(".q-radio", firstAnswer).click();
-            $$(".ChoiceStructure li").get(secondAnswer).$("label").click();
-            $$(".ChoiceStructure li").get(thirdAnswer).$("label").click();
-            $$(".ChoiceStructure li").get(fourthAnswer).$("label").click();});
+            $(".q-radio", TestData.firstAnswer).click();
+            System.out.print(TestData.firstAnswer);
+            $$(".ChoiceStructure li").get(TestData.secondAnswer).$("label").click();
+            $$(".ChoiceStructure li").get(TestData.thirdAnswer).$("label").click();
+            $$(".ChoiceStructure li").get(TestData.fourthAnswer).$("label").click();});
         step("Submit feedback form", () -> {
             $("#NextButton").click();
             $("#EndOfSurvey").shouldHave(matchText("thank you"));});
