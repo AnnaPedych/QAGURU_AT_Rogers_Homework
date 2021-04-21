@@ -2,6 +2,7 @@ package tests;
 
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("web")
 @Feature("Login tests")
+@Owner("Anna Pedych")
 public class LoginTests extends TestBase {
     @Test
     @DisplayName("Successful Login as Pay As You Go Customer")

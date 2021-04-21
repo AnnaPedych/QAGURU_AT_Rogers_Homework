@@ -1,6 +1,7 @@
 package tests;
 
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("web")
 @Feature("Main page layout tests")
+@Owner("Anna Pedych")
 public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Page should have Covid Alert")

@@ -1,7 +1,9 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
+import customAnnotations.JiraIssue;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,8 @@ import static org.hamcrest.Matchers.not;
 
 @Tag("web")
 @Feature("Stores page content tests")
+@Owner("Anna Pedych")
+@JiraIssue("QC3-22")
 public class StoreSearchTests extends TestBase {
     @Test
     @DisplayName("Open stores search page from main page")
